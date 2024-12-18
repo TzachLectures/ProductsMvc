@@ -65,6 +65,10 @@ namespace ProductsMvc.Controllers
         [HttpPost]
         public IActionResult Edit(Product newP)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(newP);
+            }
             _context.Products.Update(newP);
             _context.SaveChanges();
 
