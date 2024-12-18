@@ -2,7 +2,7 @@
 
 
 
-<h1>Products page</h1>
+<h1>Products Page</h1>
 
 <a asp-controller="Product" asp-action="Create" class="btn btn-primary">Create New</a>
 
@@ -19,3 +19,7 @@
 </div>
 
 
+@if (ViewBag.showDialog == true)
+{
+<partial name="_DeleteConfirmationModal"/>    
+}

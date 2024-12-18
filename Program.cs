@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ProductsMvc.Infrastructure.Data;
 
@@ -12,6 +13,9 @@ namespace ProductsMvc
             string connectionString = "Server=LAPTOP-M1H6FNPI\\MSSQLSERVER02; Database=ProductsMvc; Trusted_Connection=True; TrustServerCertificate=True;";
 
             builder.Services.AddDbContext<ProductsMvcDbContext>(options => options.UseSqlServer(connectionString));
+            
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            .AddEntityFrameworkStores<ProductsMvcDbContext>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

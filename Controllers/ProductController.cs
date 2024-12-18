@@ -14,7 +14,8 @@ namespace ProductsMvc.Controllers
         }
 
         public IActionResult Index()
-        { 
+        {
+
 
             return View(_context.Products.ToList());          
         }
@@ -46,6 +47,7 @@ namespace ProductsMvc.Controllers
             }
             _context.Products.Add(p);
             _context.SaveChanges();
+
             return RedirectToAction("Index");
 
         }
@@ -77,13 +79,9 @@ namespace ProductsMvc.Controllers
 
         public IActionResult Delete(int id)
         {
-            Product? p = _context.Products.FirstOrDefault(p => p.Id == id);
-            if (p == null)
-            {
-                return RedirectToAction("Index");
-            }
-
-            return View(p);
+            ViewBag.showDialog = true;
+            ViewBag.ProductToDelete = id;
+            return View("Index", _context.Products.ToList());
         }
 
 

@@ -15,6 +15,7 @@ namespace ProductsMvc.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
@@ -22,6 +23,8 @@ namespace ProductsMvc.Controllers
         {
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ProductsMvc.Models;
 
 namespace ProductsMvc.Infrastructure.Data
 {
-    public class ProductsMvcDbContext:DbContext
+    public class ProductsMvcDbContext:IdentityDbContext<IdentityUser>
     {
         public DbSet<Product> Products { get; set; }
 
