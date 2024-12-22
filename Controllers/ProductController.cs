@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProductsMvc.Infrastructure.Data;
 using ProductsMvc.Models;
+using System.Security.Claims;
 
 namespace ProductsMvc.Controllers
 {
@@ -45,6 +46,8 @@ namespace ProductsMvc.Controllers
             {
                 return View(p);
             }
+            p.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "Guest";
+
             _context.Products.Add(p);
             _context.SaveChanges();
 

@@ -20,5 +20,7 @@ namespace ProductsMvc.Models
         [Required(ErrorMessage = "כמות המוצר היא שדה חובה.")]
         [Range(0, int.MaxValue, ErrorMessage = "הכמות חייבת להיות לפחות 1.")]
         public int Quantity { get; set; } 
+
+        public string? UserId {  get; set; }
     }
 }
